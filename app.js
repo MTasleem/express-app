@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const serverRoutes = require('./serverRoutes')
 var bodyParser = require('body-parser');
 const app = express();
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 const config = require("./config/key");
 
 // view engine setup
@@ -71,7 +71,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-app.listen(config.port, () => console.log(`Application listening at ${config.mongoURI}:${config.port}`))
+app.listen(port || config.port, () => console.log(`Application listening at ${config.mongoURI}:${port || config.port}`))
 
 module.exports = app;
 
